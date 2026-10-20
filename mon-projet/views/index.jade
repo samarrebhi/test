@@ -1,0 +1,154 @@
+extends layout
+
+block content
+  .announcement-bar Livraison offerte dès 180 TND <span aria-hidden="true">·</span> Fait avec soin, livré chez vous
+  header.site-header
+    .header-inner
+      button.menu-toggle.icon-button(type='button', aria-label='Ouvrir le menu', aria-expanded='false')
+        span.menu-lines(aria-hidden='true')
+      nav.primary-nav(aria-label='Navigation principale')
+        a(href='#collections') Collections
+        a(href='#nouveautes') Nouveautés
+        a(href='#histoire') Notre histoire
+      a.brand(href='/', aria-label='NŪRA, accueil')
+        span.brand-mark NŪRA
+        span.brand-note BIJOUX DE TUNISIE
+      .header-actions
+        button.search-toggle.icon-button(type='button', aria-label='Rechercher', aria-expanded='false')
+          span.search-glyph(aria-hidden='true')
+        button.cart-toggle(type='button', aria-label='Ouvrir le panier')
+          span Panier
+          span.cart-count#cart-count 0
+    form.search-panel#search-panel(role='search', hidden)
+      label(for='product-search') Rechercher un bijou
+      input#product-search(type='search', placeholder='Une bague, un collier…', autocomplete='off')
+      button(type='button', class='search-close', aria-label='Fermer la recherche') ×
+
+  main
+    section.hero-section(aria-labelledby='hero-title')
+      .hero-image(role='img', aria-label='Bijoux dorés inspirés des couleurs de la Méditerranée')
+      .hero-shade
+      .hero-content
+        p.eyebrow L'ÉCLAT DU QUOTIDIEN
+        h1#hero-title Des bijoux qui<br>vous ressemblent.
+        p Des pièces lumineuses, pensées en Tunisie et faites pour traverser les saisons.
+        a.button.button-light(href='#nouveautes') Découvrir la collection <span aria-hidden='true'>↗</span>
+      .hero-index <span>01</span> <span class='index-line'></span> 03
+      a.hero-scroll(href='#collections') Défiler <span aria-hidden='true'>↓</span>
+
+    section.promise-strip(aria-label='Nos engagements')
+      p Créé avec intention <span aria-hidden='true'>✳</span>
+      p Pensé pour durer <span aria-hidden='true'>✳</span>
+      p Expédié depuis la Tunisie <span aria-hidden='true'>✳</span>
+
+    section.collection-section#collections
+      .section-heading
+        div
+          p.eyebrow NOS UNIVERS
+          h2 Trouvez votre lumière
+        a.text-link(href='#nouveautes') Explorer la boutique <span aria-hidden='true'>↗</span>
+      .collection-grid
+        a.collection-tile.collection-earrings(href='#nouveautes', data-category-link='Boucles')
+          img(src='https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85', alt='Boucles d’oreilles dorées', loading='lazy')
+          span.tile-caption Boucles d'oreilles <span aria-hidden='true'>↗</span>
+        a.collection-tile.collection-necklaces(href='#nouveautes', data-category-link='Colliers')
+          img(src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85', alt='Collier doré fin', loading='lazy')
+          span.tile-caption Colliers <span aria-hidden='true'>↗</span>
+        a.collection-tile.collection-rings(href='#nouveautes', data-category-link='Bagues')
+          img(src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85', alt='Bague élégante', loading='lazy')
+          span.tile-caption Bagues <span aria-hidden='true'>↗</span>
+
+    section.products-section#nouveautes
+      .section-heading.products-heading
+        div
+          p.eyebrow À GARDER PRÈS DE SOI
+          h2 Les favoris du moment
+        .product-controls
+          button.filter-button.is-active(type='button', data-filter='Tous', aria-pressed='true') Tout
+          button.filter-button(type='button', data-filter='Colliers', aria-pressed='false') Colliers
+          button.filter-button(type='button', data-filter='Boucles', aria-pressed='false') Boucles
+          button.filter-button(type='button', data-filter='Bagues', aria-pressed='false') Bagues
+      .product-grid#product-grid
+        article.product-card(data-category='Colliers', data-name='Collier Sillage')
+          .product-image-wrap
+            img(src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85', alt='Collier Sillage en finition dorée', loading='lazy')
+            span.product-label Nouveau
+            button.add-to-cart(type='button', data-product='Collier Sillage', data-price='145', aria-label='Ajouter Collier Sillage au panier') + Ajouter
+          .product-info
+            div
+              h3 Collier Sillage
+              p Collier · Acier inoxydable
+            p.product-price 145 <span>TND</span>
+        article.product-card(data-category='Boucles', data-name='Créoles Sol')
+          .product-image-wrap
+            img(src='https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=85', alt='Créoles dorées Sol', loading='lazy')
+            button.add-to-cart(type='button', data-product='Créoles Sol', data-price='98', aria-label='Ajouter Créoles Sol au panier') + Ajouter
+          .product-info
+            div
+              h3 Créoles Sol
+              p Boucles · Doré lumineux
+            p.product-price 98 <span>TND</span>
+        article.product-card(data-category='Bagues', data-name='Bague Dune')
+          .product-image-wrap
+            img(src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85', alt='Bague Dune au design sculptural', loading='lazy')
+            span.product-label Coup de cœur
+            button.add-to-cart(type='button', data-product='Bague Dune', data-price='120', aria-label='Ajouter Bague Dune au panier') + Ajouter
+          .product-info
+            div
+              h3 Bague Dune
+              p Bague · Taille ajustable
+            p.product-price 120 <span>TND</span>
+        article.product-card(data-category='Colliers', data-name='Collier Jasmin')
+          .product-image-wrap
+            img(src='https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85', alt='Collier Jasmin délicat', loading='lazy')
+            button.add-to-cart(type='button', data-product='Collier Jasmin', data-price='165', aria-label='Ajouter Collier Jasmin au panier') + Ajouter
+          .product-info
+            div
+              h3 Collier Jasmin
+              p Collier · Perles naturelles
+            p.product-price 165 <span>TND</span>
+      p.empty-search#empty-search(hidden) Aucun bijou ne correspond à votre recherche.
+
+    section.story-section#histoire
+      .story-image
+        img(src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=85', alt='Détail d’un bijou façonné à la main', loading='lazy')
+      .story-copy
+        p.eyebrow UNE HISTOIRE DE LUMIÈRE
+        h2 La Méditerranée<br>au creux de la main.
+        p NŪRA célèbre les détails qui rendent chaque jour un peu plus précieux. Des formes inspirées par la mer, la terre et les gestes de celles qui nous entourent.
+        a.text-link(href='#collections') En savoir plus sur NŪRA <span aria-hidden='true'>↗</span>
+
+    section.newsletter-section
+      .newsletter-copy
+        p.eyebrow LES LETTRES DE NŪRA
+        h2 Un peu de lumière<br>dans votre boîte mail.
+      form.newsletter-form#newsletter-form
+        label(for='newsletter-email') Votre adresse e-mail
+        .newsletter-input-row
+          input#newsletter-email(type='email', placeholder='bonjour@exemple.com', required)
+          button(type='submit', aria-label='S’inscrire à la newsletter') ↗
+        p.newsletter-message#newsletter-message(hidden) Merci, vous êtes bien inscrit·e.
+
+  footer.site-footer
+    a.brand.footer-brand(href='/')
+      span.brand-mark NŪRA
+      span.brand-note BIJOUX DE TUNISIE
+    p Des bijoux à porter, à garder, à transmettre.
+    nav(aria-label='Liens de pied de page')
+      a(href='#collections') Boutique
+      a(href='#histoire') À propos
+      a(href='mailto:bonjour@nura.tn') Contact
+    small © 2026 NŪRA · Imaginé en Tunisie
+
+  .cart-overlay#cart-overlay(hidden)
+  aside.cart-drawer#cart-drawer(aria-labelledby='cart-title', aria-hidden='true', hidden)
+    .cart-header
+      h2#cart-title Votre panier <span id='drawer-count'>(0)</span>
+      button.cart-close(type='button', aria-label='Fermer le panier') ×
+    .cart-items#cart-items
+      p.cart-empty Votre panier est encore vide.
+    .cart-footer
+      p.cart-subtotal Sous-total <strong id='cart-subtotal'>0 TND</strong>
+      button.checkout-button(type='button', disabled) Continuer vers le paiement <span aria-hidden='true'>↗</span>
+      p.checkout-note Livraison calculée à l'étape suivante
+  .toast#toast(role='status', aria-live='polite') Ajouté à votre panier
